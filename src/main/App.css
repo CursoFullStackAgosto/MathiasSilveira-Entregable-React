@@ -1,0 +1,342 @@
+body {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to bottom, #000000, #614c3c);
+  overflow: hidden;
+  position: relative;
+}
+
+.stars {
+  position:absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.star {
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+  animation: twinkle 3s infinite ease-in-out;
+  opacity: 0.6; 
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.3;
+    transform: translateY(0px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-2px);
+  }
+}
+
+.container.box {
+  background: linear-gradient(to bottom, #f17d7d, #bbc471);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(111, 245, 1, 0.719);
+  height: 150%;
+  width: 150%;
+  max-width: 1000px;
+}
+
+.task-summary {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #c8f528;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+/*--------------------------------HEADER------------------------------------------------------------ */
+
+.header {
+  
+  width: 100%;
+  height: 80px;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(36, 37, 38, 0.8)); 
+  color: white;
+  padding: 10px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  padding: 0 20px; 
+}
+
+.logo a {
+  font-size: 30px;
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.title {
+  font-family: 'Permanent Marker', cursive;
+  margin: 0;
+  font-size: 28px;
+  font-weight: 500; 
+  letter-spacing: 1px;
+  color: #f00d0d;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); 
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(3, 153, 240, 0.774);
+  font-size: 5em;
+ 
+}
+
+.right-section {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.search-input {
+  padding: 8px 12px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #fff;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  transition: background-color 0.3s;
+}
+
+.search-input:focus {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.nav {
+  display: flex;
+  gap: 15px;
+}
+
+.nav a {
+  text-decoration: none;
+  font-size: 16px;
+  color: #fff;
+  font-weight: 500;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.nav a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #1da1f2;
+}
+
+/*--------------------------------------CONTENEDOR DE LAS LISTAS------------------------------------------------------ */
+.container {
+  margin: 20px auto;
+  width: 90%;
+  max-width: 600px;
+}
+
+.add-todo-form {
+  display: flex;
+  margin-bottom: 20px;
+  
+}
+
+.add-todo-form input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+.add-todo-form button {
+  padding: 10px;
+  background-color: green;
+  color: white;
+  border: none;
+  border-radius: 20%;
+  transition: background-color 0.3s;
+  cursor: pointer; 
+}
+
+.add-todo-form button:hover {
+  background-color: rgb(6, 221, 6);
+}
+.add-todo-form button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed; 
+}
+/*--------------------------------------------LISTA------------------------------------------------ */
+.todo-list {
+  list-style: none;
+  padding: 0;
+  max-height: 800px;
+  overflow-y: auto;
+  border-radius: 10px;
+  background-color: rgb(250, 128, 128);
+}
+/*-------------------------------------------------ITEMS DE LA LISTA------------------------------------------- */
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  background: #fffefe;
+  border: 1px solid #11101069;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+  font-size: 20px;
+  cursor:pointer;
+}
+
+.todo-item:hover {
+  background-color: #12e35b;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.473);
+}
+
+.todo-item.completed {
+  background-color: #4caf50;
+  text-decoration: line-through;
+  color: gray;
+}
+
+.todo-item.completed span {
+  display: inline-block;
+  position: relative;
+  transition: color 0.5s ease-in-out;
+}
+
+.todo-item .delete-btn {
+  background-color: #f55e5e;
+  color: white;
+  border-radius: 50%;
+  padding: 10px;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.todo-item .delete-btn:hover {
+  background-color: #fa0606;
+}
+/*----------------------------------------FOOTER---------------------------------------------------- */
+.footer {
+  width: 100%;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(36, 37, 38, 0.8));
+  color: #fff;
+  padding: 20px 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+.social-icons a {
+  color: #fff;
+  font-size: 24px;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #1da1f2; 
+}
+
+.footer-text {
+  font-size: 14px;
+}
+/*--------------------------------------BARRA DE PROGRESO------------------------------------------------------ */
+#progress-container {
+  margin: 15px 0;
+  background-color: #cac6c600;
+  border-radius: 10px;
+  height: 20px;
+  overflow: hidden;
+  position: relative; 
+}
+
+#progress-bar {
+  height: 100%;
+  border-radius: 10px;
+  background-color: green; 
+  transition: width 0.5s ease-in-out;
+}
+
+#progress-text {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%); 
+  font-size: 14px;
+  font-weight: bold;
+  color: rgb(255, 252, 252); 
+  z-index: 2; 
+  pointer-events: none;
+}
+/*-------------------------------------BOTONES DE PAGINACION------------------------------------------------------- */
+#pagination {
+  position: sticky;
+  bottom: 20px;
+  background-color: #c8f528;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  z-index: 10;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+#pagination button {
+  padding: 10px 15px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+#pagination button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+#pagination button:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+/*----------------------------*/ 
